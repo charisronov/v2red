@@ -1,0 +1,8 @@
+[gcode_macro PREFLIGHT_CHECK]
+description: Use before print startup, checks the part fan for failures
+gcode:
+  M106 S128 ; turn on the part fan
+  G4 P2000  ; wait for the fan to spin up
+  M400
+  PCF_CHECK ; check part fan speed
+  M106 S0   ; turn off the part fan
